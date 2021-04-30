@@ -30,7 +30,9 @@
                     alert("User logged in successfully");
                     window.location = "https://localhost:44362/Students/Index";
                     window.location.href = "https://localhost:44362/Students/Index";
-                    
+                    self.location = "https://localhost:44362/Students/Index";
+                    self.reload();
+                    window.location.reload();
                     $get('https://localhost:44362/Students/Index', function (data, status) {
                         //alert("status");
                     });
