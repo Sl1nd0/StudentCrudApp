@@ -85,3 +85,4 @@ C:\Users\27815\source\repos\StudentCrudApp\bin\System.Web.Http.WebHost.dll
 C:\Users\27815\source\repos\StudentCrudApp\bin\System.Net.Http.Formatting.xml
 C:\Users\27815\source\repos\StudentCrudApp\bin\System.Web.Http.xml
 C:\Users\27815\source\repos\StudentCrudApp\bin\System.Web.Http.WebHost.xml
+C:\Users\27815\source\repos\StudentCrudApp\obj\Debug\StudentCrudApp.csprojAssemblyReference.cache

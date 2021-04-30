@@ -49,10 +49,6 @@ namespace StudentCrudApp.Controllers.Api
                 return Request.CreateResponse(HttpStatusCode.NotFound, stud);
             }
         }
-
-        public IHttpActionResult Get()
-        {
-            return Redirect("https://localhost:44362/Students/Index/");
-        }
+         
     }
 }

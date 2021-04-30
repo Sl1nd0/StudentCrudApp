@@ -22,9 +22,9 @@ namespace StudentCrudApp.Controllers
         public ActionResult Details(int id)
         {
             var context = new ConsortoUniversity1Entities1();
-            var courses = context.COURSES;
-            //var students = context.STUDENTS;
-            var result = courses.Where(s => s.CoureseId == id).ToList<COURS>();
+            //var courses = context.COURSES;
+            var students = context.STUDENTS;
+            var result = students.Where(s => s.CoureseId == id).ToList<STUDENT>();
 
             return View(result);
         }
