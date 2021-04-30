@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ConsortoUniversity1Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="COURS">
+    <Key>
+      <PropertyRef Name="CoureseId" />
+    </Key>
+    <Property Name="CoureseId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CoureseName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CourseCode" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CourseDescription" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="STUDENTS" Relationship="Self.FK__STUDENTS__Coures__440B1D61" FromRole="COURSES" ToRole="STUDENTS" />
+  </EntityType>
+  <EntityType Name="STUDENT">
+    <Key>
+      <PropertyRef Name="StudentId" />
+    </Key>
+    <Property Name="StudentId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CoureseId" Type="Int32" />
+    <Property Name="StudentRSAIDnumber" Type="String" MaxLength="13" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="StudentName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="StudentSurname" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="COURS" Relationship="Self.FK__STUDENTS__Coures__440B1D61" FromRole="STUDENTS" ToRole="COURSES" />
+    <Property Name="ROLES" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <Association Name="FK__STUDENTS__Coures__440B1D61">
+    <End Role="COURSES" Type="Self.COURS" Multiplicity="0..1" />
+    <End Role="STUDENTS" Type="Self.STUDENT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="COURSES">
+        <PropertyRef Name="CoureseId" />
+      </Principal>
+      <Dependent Role="STUDENTS">
+        <PropertyRef Name="CoureseId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ConsortoUniversity1Entities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="COURSES" EntityType="Self.COURS" />
+    <EntitySet Name="STUDENTS" EntityType="Self.STUDENT" />
+    <AssociationSet Name="FK__STUDENTS__Coures__440B1D61" Association="Self.FK__STUDENTS__Coures__440B1D61">
+      <End Role="COURSES" EntitySet="COURSES" />
+      <End Role="STUDENTS" EntitySet="STUDENTS" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
